@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tour Maluku - Destinasi Wisata</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #ffffff;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      background-image: url('laut.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    header {
+      background: rgba(143, 187, 236, 0.9);
+      color: white;
+      padding: 1rem 2rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .top-nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .top-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: opacity 0.2s;
+    }
+    .top-nav a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 2rem;
+      flex: 1;
+    }
+
+    .destinations-title {
+      font-family: 'Georgia', serif;
+      font-weight: 600;
+      font-size: 2.4rem;
+      color: #e6f4ea;
+      text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        0 0 10px rgba(100, 200, 200, 0.6),
+        0 0 20px rgba(80, 180, 180, 0.3);
+      margin-bottom: 2rem;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ✨ Card TANPA background, TAPI dengan border tipis */
+    .card {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.25); /* Garis tipis putih transparan */
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: left;
+      backdrop-filter: blur(2px); /* Opsional: efek halus di atas gambar */
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 0.8rem;
+    }
+
+    .card h3 {
+      color: #e6f4ea;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    .card p {
+      color: #f0f0f0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.45rem 1rem;
+      background: rgba(8, 215, 252, 0.9);
+      color: rgb(65, 61, 61);
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: rgba(34, 86, 56, 0.95);
+    }
+
+    /* Modal tetap utuh */
+    .modal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 2000;
+    }
+    .modal.hidden {
+      display: none;
+    }
+    .modal-content {
+      background: rgb(15, 237, 253);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      color: #333;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #999;
+    }
+    .close:hover {
+      color: #333;
+    }
+    #whatsapp-btn {
+      width: 100%;
+      padding: 0.7rem;
+      background: #2ff05f;
+      color: rgb(247, 248, 248);
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    #whatsapp-btn:hover {
+      background: #1faa59;
+    }
+
+    footer {
+      text-align: center;
+      padding: 0,5rem;
+      background: rgba(230, 224, 224, 0.9);
+      color: #0e0000;
+      margin-top: auto;
+      font-size: 0.9rem;
+    }
+
+    /* Responsif */
+    @media (max-width: 992px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 576px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .destinations-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <h1>Tour Maluku</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="about.html">Tentang Kami</a>
+        <a href="contact.html">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="destinations-title">Destinasi Wisata</h2>
+    <div class="grid" id="destinations-list">
+      <!-- Data dari script.js -->
+    </div>
+  </main>
+
+  <section id="booking-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="booking-title">Hitung Biaya</h2>
+      <div id="booking-form">
+        <p><strong>Destinasi:</strong> <span id="booking-dest-name"></span></p>
+        <label>Jumlah Peserta:
+          <input type="number" id="participants" min="1" value="1" />
+        </label>
+        <p><strong>Total Biaya:</strong> Rp <span id="total-cost">0</span></p>
+        <button id="whatsapp-btn">Pesan via WhatsApp</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Tour Maluku. Hak Cipta Dilindungi.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

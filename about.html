@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tour Maluku - Tentang Kami</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #ffffff;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      background-image: url('laut.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    /* Overlay gelap seperti di index.html */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    header {
+      background: rgba(143, 187, 236, 0.9); /* Sesuaikan warna header dengan index.html */
+      color: white;
+      padding: 1rem 2rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .top-nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .top-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: opacity 0.2s;
+    }
+    .top-nav a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Teks utama: langsung di atas background, tanpa kotak */
+    .about-text {
+      padding: 2rem;
+      max-width: 750px;
+    }
+
+    .about-text h2 {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-weight: 600;
+      font-size: 2.4rem;
+      color: #e6f4ea; /* Hijau pastel lembut seperti di index.html */
+      text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        0 0 10px rgba(100, 200, 200, 0.6),
+        0 0 20px rgba(80, 180, 180, 0.3);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    .about-text p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #f0f0f0;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      margin: 0 auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 0,5rem;
+      background: rgba(230, 224, 224, 0.9);
+      color: #333;
+      margin-top: auto;
+      font-size: 0.9rem;
+    }
+
+    /* Responsif mobile */
+    @media (max-width: 600px) {
+      .about-text h2 {
+        font-size: 2rem;
+      }
+      .about-text p {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <h1>Tour Maluku</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="destinasi.html">Destinasi</a>
+        <a href="contact.html">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="about-text">
+      <h2>Tentang Kami</h2>
+      <p>
+        Tour Maluku adalah penyedia jasa tour wisata alam terpercaya di Provinsi Maluku.
+        Kami menawarkan pengalaman eksklusif menjelajahi keindahan alam Maluku — dari pantai pasir putih,
+        gunung tertinggi, hingga destinasi sejarah yang menakjubkan.
+        Tim kami siap memandu Anda dengan pelayanan terbaik dan harga transparan.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tour Maluku. Hak Cipta Dilindungi.</p>
+  </footer>
+</body>
+</html>
